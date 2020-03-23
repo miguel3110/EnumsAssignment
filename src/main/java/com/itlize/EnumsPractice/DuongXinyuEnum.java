@@ -1,32 +1,33 @@
 package com.itlize.EnumsPractice;
 
-interface Duong{
-	public String name();
-}
-
-interface Xinyu{
-	public String name();
-}
-
-enum DuongXinyuEnum implements Duong, Xinyu{
+public enum DuongXinyuEnum {
+	Duong("Duong","Hey, my name is Duong!"),
+	Xinyu("Xinyu","Hey, my name is Xinyu!");
 	
-	Duong, Xinyu;
+	public final String name;
+	public final String catchphrase;
 	
-	
-	String getCatchPhrase() {
-		return "Hey, my name is " + this.name() + "!";
+	private DuongXinyuEnum(String name,String catchphrase){
+	    this.name=name;
+	    this.catchphrase=catchphrase;
 	}
 	
-	boolean isDuong() {
-		if ( this.name().equals("Duong")) return true;
-		return false;
+	public String getCatchPhrase(){
+	    return this.catchphrase;
 	}
 	
-	boolean isXinyu() {
-		if ( this.name().equals("Xinyu")) return true;
-		return false;
+	public Boolean isDuong(){
+	    if(this.name.equals("Duong"))
+	        return true;
+	    else
+	        return false;
 	}
+	
+	public Boolean isXinyu(){
+	    if(this.name.equalsIgnoreCase("Xinyu"))
+	        return true;
+	    else
+	        return false;
+	}
+
 }
-
-
-
